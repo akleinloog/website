@@ -2,10 +2,10 @@
 widget = "portfolio"
 headless = true
 active = true
-weight = 30
+weight = 10
 
 title = "Projects"
-subtitle = ""
+subtitle = "Some of the projects I have been working on:"
 
 [content]
   page_type = "project"
