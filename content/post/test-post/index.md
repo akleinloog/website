@@ -1,7 +1,7 @@
 ---
 title: 'Test Post'
 subtitle: 'Just a simple test post'
-summary: Added to see if everything is working, tested with an update.
+summary: Added to see if everything is working, tested with an automatic update.
 authors:
 - admin
 tags:
@@ -10,7 +10,7 @@ tags:
 categories:
 - Test
 date: "2020-05-03T00:00:00Z"
-lastmod: "2020-05-03T00:00:00Z"
+lastmod: "2020-05-05T00:00:00Z"
 featured: false
 draft: false
 
@@ -34,3 +34,5 @@ projects: []
 This is just a simple test post to see if everything is working correctly. It will be removed and replaced with posts that detail the setup of this blog.
 
 Added this extra line here to test the deployment mechanism.
+
+And this one was added with automatic publishing, that completes the test!
