@@ -22,9 +22,9 @@ subtitle = ""
  css_class = ""
 +++
 
-To my personal blog, an opinionated take on software technologies and a reflection on my learnings.
+To my personal blog, an opinionated take on software technologies and a reflection on my learnings over time.
 
-Feel free to disagree with anything you find here, and should you leave your opinion, I will appreciated it!
+Feel free to disagree with anything you find here, and should you choose to leave your opinion, thanks in advance.
 
 This site was build with [Hugo](https://gohugo.io), using the [Academic](https://sourcethemes.com/academic) theme. I'll detail the process as soon as everything is up and running.
 
