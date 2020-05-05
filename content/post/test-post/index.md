@@ -1,7 +1,7 @@
 ---
 title: 'Test Post'
 subtitle: 'Just a simple test post'
-summary: Added to see if everything is working.
+summary: Added to see if everything is working, tested with an update.
 authors:
 - admin
 tags:
@@ -32,3 +32,5 @@ image:
 projects: []
 ---
 This is just a simple test post to see if everything is working correctly. It will be removed and replaced with posts that detail the setup of this blog.
+
+Added this extra line here to test the deployment mechanism.

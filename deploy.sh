@@ -18,11 +18,11 @@ git add .
 
 msg="regenerating site content $(date)"
 
-# git commit -m "$msg"
+git commit -m "$msg"
 
 echo "Pushing to master"
 
-# git push origin master
+git push origin master
 
 cd ..
 
