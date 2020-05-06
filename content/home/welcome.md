@@ -26,5 +26,5 @@ To my personal blog, an opinionated take on software technologies and a reflecti
 
 Feel free to disagree with anything you find here, and should you choose to leave your opinion, thanks in advance.
 
-This site was build with [Hugo](https://gohugo.io), using the [Academic](https://sourcethemes.com/academic) theme. I'll detail the process as soon as everything is up and running.
+This site was build with [Hugo](https://gohugo.io), using the [Academic](https://sourcethemes.com/academic) theme. See this [post](/post/my-blog-pt1) for the details.
 
