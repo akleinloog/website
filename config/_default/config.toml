@@ -14,7 +14,7 @@ copyright = "Dedicated to the public domain · [Unlicensed](https://github.com/a
 
 theme = "academic"
 
-enableGitInfo = false
+enableGitInfo = true
 
 defaultContentLanguage = "en"
 hasCJKLanguage = false  # Set `true` for Chinese/Japanese/Korean languages.
