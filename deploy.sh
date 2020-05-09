@@ -8,7 +8,7 @@ rm -r ./public/*
 
 echo "Running Hugo Build"
 
-hugo -t academic
+env HUGO_ENV="production" hugo --gc --minify -t academic -b https://akleinloog.github.io
 
 cd public
 
