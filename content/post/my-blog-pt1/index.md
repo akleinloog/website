@@ -61,7 +61,7 @@ code .
 ```
 
 Add the following .gitignore file and optionally, save the code workspace:
-```
+```r
 # MacOS Files
 .DS_Store
 
@@ -129,12 +129,12 @@ npx serve
 ## Automate it
 
 Add a file called deploy.sh to the sources repository's main folder. Ensure it is executable:
-```
+```bash
 chmod +x deploy.sh
 ```
 
 Add the following content to that file:
-```
+```bash
 #!/bin/sh
 
 set -e
@@ -169,4 +169,6 @@ echo "Deployment Finished"
 This script uses Hugo to generate your website and commit the changes to the website's repository.
 By pushing these changes to GitHub, the script effectively deploys your website to production!
 
-I hope you have enjoyed this as much as I did, in Part 2 I will add google analytics, support for comments and most likely also a contact page.
+## Next Step
+
+I hope you have enjoyed this as much as I did, in [Part 2](/post/my-blog-pt2) I will add support for Google Analytics, and in later posts I will enable comments and add a simple contact page.
