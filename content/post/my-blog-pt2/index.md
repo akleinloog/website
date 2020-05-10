@@ -81,7 +81,7 @@ After using the 'URL prefix' method, my site ownership was automatically verifie
 ./deploy.sh
 ``` 
 
-Of course I realize that, as is the case with most 'free service' offerings, I am being part of the product here. Google will use all information they get in ways they see fit. Since what I am doing here is 'out in the open' and dedicated to public domain, I figured it would make a good opportunity to learn more about these Google services, and I appreciate that the collected information (or at least some of it) is shared with me as well.
+Of course I realize that, as is the case with most 'free service' offerings, I am being part of the product here. Google will use all information they get in ways they see fit. Since what I am doing here is 'out in the open' and dedicated to the public domain, I figured it would make a good opportunity to learn more about these Google services, and I appreciate that the collected information (or at least some of it) is shared with me as well.
 
 ## Next Step
 
