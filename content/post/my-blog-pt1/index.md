@@ -30,12 +30,12 @@ image:
 projects: ["personal-blog"]
 ---
 
-This is the first in a series of posts detailing the set up of my personal blog. It details the basic set up that is needed to get started.
+This is the first in a series of posts detailing the set up of my personal blog. It covers the basic steps needed to get started.
 
 I use [Hugo](https://gohugo.io) as a static site generator and [Visual Studio Code](https://code.visualstudio.com) as editor. The resulting website is hosted using [GitHub Pages](https://pages.github.com/). A nice combination of open source tools with a free hosting provider that poses no restrictions in terms of traffic, size, etc.
 Sounds like a perfect match to me.
 
-Familiarity with git and the command line are assumed. I use a Mac,en some of the commands may need to be translated to your environment.
+Familiarity with git and the command line are assumed. I use a Mac, some of the commands may need to be translated to your environment.
 
 ## Getting started
 
@@ -48,7 +48,7 @@ In my case: **akleinloog.github.io**
 {{% /alert %}}
 
 I decided to dedicate both repositories to the public domain and therefore used the [UNLICENSE](https://choosealicense.com/licenses/unlicense/).
-Feel free to use anything you find here as you see fit.
+Feel free to use anything you find there as you see fit.
 
 The next step is to clone the repository used for the source:
 ```bash
@@ -102,8 +102,8 @@ Experiment with the configuration options and the structure. Run the site in dev
 ```bash
 hugo server
 ``` 
-The site will be available at http://localhost:1313.
-Whenever you save your changes, Hugo will pick up on it and automatically refresh it, providing for a pleasant live-editing experience.
+The site will be available at _http://localhost:1313_.
+Whenever you save your changes, Hugo will react and automatically refresh the website, providing a very pleasant live-editing experience.
 
 
 ## Get ready to publish
@@ -166,9 +166,50 @@ cd ..
 echo "Deployment Finished"
 ```
 
-This script uses Hugo to generate your website and commit the changes to the website's repository.
-By pushing these changes to GitHub, the script effectively deploys your website to production!
+This script uses Hugo to generate your website and commit the changes to the generated website repository.
+By pushing these changes to GitHub, the script effectively deploys your website to production. Give it a try:
+```
+./deploy.sh
+```
 
-## Next Step
+Navigate to your GitHub Pages URL to see the result!
 
-I hope you have enjoyed this as much as I did, in [Part 2](/post/my-blog-pt2) I will add support for Google Analytics, and in later posts I will enable comments and add a simple contact page.
+## Add a custom domain name
+
+Using a custom domain name for your GitHub pages is relatively straight forward.
+First register a domain name and then configure the [DNS settings](https://kb.pressable.com/article/dns-record-types-explained/).
+
+Create the following A records for your domain to point it to GitHub's servers:
+```
+185.199.108.153
+185.199.109.153
+185.199.110.153
+185.199.111.153
+```
+Then add a CNAME record for www that points to the your GitHub site.
+
+Then go to the GitHub repository settings of your generated site.
+In the GitHub Pages section, enter the domain you've registered in the custom domain field, with the **www.** prefix, and save it.
+This will trigger a check-in that adds a CNAME file with the domain that you have specified.
+
+Keep in mind that may take some time for DNS changes to take effect, and for the SSL certificates to be generated.
+Once completed, check the 'Enforce HTTPS' checkbox and the setup is completed. 
+
+Your domain name will be forwarded to your **www.** and so will your GitHub pages and HTTPS will be automatically enforces, with valid a certificate for your URL, free of charge! 
+
+See the GitHub Pages docs for [more information](https://help.github.com/en/github/working-with-github-pages/managing-a-custom-domain-for-your-github-pages-site) and [troubleshooting tips](https://help.github.com/en/github/working-with-github-pages/troubleshooting-custom-domains-and-github-pages).
+
+## Update your sources repository
+
+The last thing to do, before making other modifications to your site, is to secure the CNAME file in your sources repository so that it does not get deleted when you regenerate your website. First pull the changes:
+```bash
+cd public
+
+git pull --all
+```
+This will update your local module and add the CNAME file. Now copy that file from the _public_ folder to the _static_ folder so it will be re-added when the site is regenerated. Commit and push your changes and you are good to go!
+
+
+## Next Steps
+
+I hope you have enjoyed this as much as I did, in [Part 2](/post/my-blog-pt2) I will add support for Google Analytics, comments and a simple contact page.
