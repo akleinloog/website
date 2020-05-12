@@ -95,6 +95,14 @@ Familiarize yourself with Academic, and [customize](https://sourcethemes.com/aca
 A good way to do that, is to clone the [Academic Kickstart](https://github.com/sourcethemes/academic-kickstart) project in a separate directory.
 It provides a good demonstration of what the theme has to offer.
 
+## Add some content
+
+First add the configuration files. You can copy the ones from the Academic Kickstart project to get started. Read through them and adjust as you see fit.
+
+Also copy the _page_sharer.toml_ file in the _data_ folder to your local project.
+
+Playing around with Academic's many widgets using the Kickstart project should give you a fair idea on what other content you want to add.
+You can also have a look at my [sources repository](https://github.com/akleinloog/website) to see what I did for this blog.
 
 ## Try it out locally
 

@@ -50,7 +50,12 @@ Lucky for me, it is a straight forward exercise. After signing up for google ana
 
 I signed up for [Google Tag Manager](https://marketingplatform.google.com/about/tag-manager/) as well, and tried to activate it, but no luck so far. In order to get Google Analytics to work I had to comment out the _google_tag_manager_ entry. If I decide to take another look at this and get it to work, I'll detail it in a follow up post.
 
-The next step is to configure the base URL of your site, in _config.toml_ in _/config/_default_:
+The next step is to configure the base URL of your site, in _config.toml_ in _/config/_default_. If you used a custom domain:
+```r 
+# The URL of your site.
+baseurl = "https://www.yourdomain.com/"
+``` 
+Otherwise, use your GitHub Pages URL:
 ```r 
 # The URL of your site.
 baseurl = "https://<username here>.github.io/"
@@ -83,6 +88,28 @@ After using the 'URL prefix' method, my site ownership was automatically verifie
 
 Of course I realize that, as is the case with most 'free service' offerings, I am being part of the product here. Google will use all information they get in ways they see fit. Since what I am doing here is 'out in the open' and dedicated to the public domain, I figured it would make a good opportunity to learn more about these Google services, and I appreciate that the collected information (or at least some of it) is shared with me as well.
 
+## Commenting with Disqus
+
+Enabling others to comment on your site turns it into an interactive site and is relatively easy to do.
+First go to https://disqus.com and sign up. I selected the basic, free package. Then open _params.toml_ in your _config/_default_ directory and fill in the comments section to enable commenting:
+```r
+############################
+## Comments
+############################
+[comments]
+...
+  engine = 1
+
+...
+  [comments.disqus]
+    shortname = "<shortname>" # Paste the shortname from your Disqus dashboard
+``` 
+
+When you run the site locally, the commenting section won't be enabled, but you should see a warning like
+_"Disqus comments not available by default when the website is previewed locally."_ at the bottom of your posts.
+
+Deploy your website to production and see how it works!
+
 ## Next Step
 
-The next step is to enable visitors to comment on posts with Discuss. I'll post part 3 when it is up and running...
+The next step is to add a simple contact page. I'll update this post when it is up and running...
