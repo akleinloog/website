@@ -1,6 +1,6 @@
 ---
 title: Personal Blog
-summary: A simple website to be used as a personal blog.
+summary: A simple website to be used as my personal blog.
 tags:
 - Open Source
 - Hugo
