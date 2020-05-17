@@ -110,6 +110,58 @@ _"Disqus comments not available by default when the website is previewed locally
 
 Deploy your website to production and see how it works!
 
-## Next Step
+## Contact Page
 
-The next step is to add a simple contact page. I'll update this post when it is up and running...
+Adding a simple contact page can be done with Academic's [contact widget](https://sourcethemes.com/academic/docs/page-builder/#contact).
+
+For this side, I decided to add it to the bottom of the about page, and in addition, add a top-level menu and a link from my profile.
+
+To add a top level menu, open _config/_default/menus.toml_ and add:
+```r 
+[[main]]
+  name = "Contact"
+  url = "about/#contact"
+  weight = 50
+``` 
+
+In _config/_default/params.toml_, make sure that an email address is configured.
+
+
+To add a link from your profile, open _authors/admin/_index.md_ and add this to the social section:
+```r
+- icon: envelope
+  icon_pack: fas
+  link: 'about/#contact'
+``` 
+
+To add the contact form itself, in the _content/about/_ folder, add contact.md with the following content:
+
+```r
++++
+# Contact widget.
+widget = "contact"
+headless = true
+active = true
+weight = 50
+
+title = "Contact"
+subtitle = ""
+
+# Automatically link email and phone?
+autolink = true
+
+# Email form provider
+#   0: Disable email form
+#   1: Netlify (requires that the site is hosted by Netlify)
+#   2: formspree.io
+email_form = 2
++++
+``` 
+
+This sets up your site to use [Formspree](https://formspree.io/) to email you the request.
+After deploying to production, simply fill in the form once and you will receive an email to complete your registration.
+Their free plan gives you a limited amount of monthly submissions.
+
+The contact widget can be further customized by providing additional information in your _params.toml_, see the [docs](https://sourcethemes.com/academic/docs/page-builder/#contact) for more detail.
+
+

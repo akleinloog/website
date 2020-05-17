@@ -70,7 +70,7 @@ edit_page = false
 ############################
 
 # Enter contact details (optional). To hide a field, clear it to "".
-email = ""
+email = "arnoud@kleinloog.ch"
 phone = ""
 address = {}
 coordinates = {}
