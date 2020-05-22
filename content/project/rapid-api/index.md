@@ -2,7 +2,6 @@
 title: Rapid API
 summary: Rapid API prototyping of RESTful and GraphQL based APIs.
 tags:
-- Open Source
 - API
 - REST
 - GraphQL

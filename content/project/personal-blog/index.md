@@ -2,7 +2,6 @@
 title: Personal Blog
 summary: A simple website to be used as my personal blog.
 tags:
-- Open Source
 - Hugo
 date: "2020-05-05T00:00:00Z"
 

@@ -5,23 +5,10 @@ active = true
 weight = 10
 
 title = "Projects"
-subtitle = "Some of the projects I have been working on:"
+subtitle = "Some of the projects I have been working on recently:"
 
 [content]
   page_type = "project"
-  filter_default = 0
-  
-  [[content.filter_button]]
-    name = "All"
-    tag = "*"
-  
-  [[content.filter_button]]
-    name = "Open Source"
-    tag = "Open Source"
-  
-  [[content.filter_button]]
-    name = "Commercial"
-    tag = "Commercial"
 
 [design]
 
