@@ -1,9 +1,12 @@
 {
     "cSpell.words": [
+        "kubernetes",
         "microservice",
         "microservices",
+        "minikube",
+        "runtimes",
         "strapi",
         "webhooks",
-        "wordpress"
+        "wordpress",
     ]
 }
