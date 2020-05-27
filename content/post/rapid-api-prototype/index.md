@@ -10,8 +10,8 @@ tags:
 - GraphQL
 - Prototyping
 - strapi
-date: "2020-05-18T00:00:00Z"
-lastmod: "2020-05-18T00:00:00Z"
+date: "2020-05-27T00:00:00Z"
+lastmod: "2020-05-27T00:00:00Z"
 featured: true
 draft: false
 
@@ -33,7 +33,7 @@ image:
 projects: ["rapid-api"]
 ---
 
-The goal of the [Rapid API project](/project/rapid-api) is to create a containerized starting point that can be used to quickly implement a prototype of an API, customize it as needed, and easily add initial content.
+The goal of my [Rapid API project](/project/rapid-api) is to create a containerized starting point that can be used to quickly implement a prototype of an API, customize it as needed, and easily add initial content.
 
 ## Preparation
 
