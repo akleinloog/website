@@ -68,7 +68,7 @@ This is something that I did not do before, so a good opportunity to learn.
 
 See [this post](/post/rapid-api-prototype) for a detailed description of the process and how to use it. 
 
-The resulting container to get you going with rapid API prototyping is available on docker hub rapidand can be started as follows:
+The resulting container to get you going with rapid API prototyping is available on docker hub [here](https://hub.docker.com/r/akleinloog/rapid-api) and can be started as follows:
 
 ```r
 docker run -p 8080:8080 akleinloog/rapid-api
