@@ -53,20 +53,27 @@ Additional nice to haves:
 Every now and then I find myself in a situation where I need to quickly create a prototype of an API.
 This often happens when exploring a design for a new Microservice, especially when that Microservice depends on other services.
 
-In order to properly allocate responsibilities and design the interactions between these Microservice, I often find it useful to create some working prototypes of the dependent Microservices.
+In order to properly allocate responsibilities and design the interactions between these Microservice, I often find it useful to create some working prototypes of the Microservices I depend on.
 
-Being able to do so quickly, while having a rich feature set at the same time, enables me to apply a **show me** approach to software architecture, which I find far more interesting and effective, and therefore more valuable, than the more common diagrams-based **tell me** approach.
+Being able to do so quickly, while having a rich feature set at the same time, enables me to follow the **show me** approach to software architecture, which I find far more interesting and effective, and therefore more valuable, than the more common diagrams-based **tell me** approach.
 
 ## The How
 
 The [strapi](https://strapi.io/) project was initially created to boot**strap** **API**s. Even though it is now advertised as a Headless CMS, from what I have seen, it could be a very good fit for what I need.
 
 Based on strapi, I will create a docker image that is pre-configured and ready to use. In the process, I will tailor the image to my needs and in addition, set up an automated build that pushes new versions of that image to [docker hub](https://hub.docker.com).
-This is something that I never did, so a good opportunity to learn.
+This is something that I did not do before, so a good opportunity to learn.
 
 ## The Results
 
-I just started this project, so there are no results to share just yet.
-I will detail the progress in a series of blog posts and update this section when the results are available.
+See [this post](/post/rapid-api-prototype) for a detailed description of the process and how to use it. 
 
-In the end, my solution will be publicly available on GitHub and on Docker, for you to use freely, to learn from, and hopefully, to provide some feedback on!
+The resulting container to get you going with rapid API prototyping is available on docker hub rapidand can be started as follows:
+
+```r
+docker run -p 8080:8080 akleinloog/rapid-api
+```
+
+The code is available in this [GitHub repository](https://github.com/akleinloog/rapid-api).
+
+Use it freely, learn from it, and ideally, provide some feedback!
