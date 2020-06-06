@@ -6,8 +6,17 @@
 	],
 	"settings": {
 		"cSpell.words": [
+			"akleinloog",
+			"kubectl",
+			"kubernetes",
+			"microservice",
+			"microservices",
+			"minikube",
 			"quickstart",
-			"strapi"
+			"runtimes",
+			"strapi",
+			"webhooks",
+			"wordpress"
 		]
 	}
 }

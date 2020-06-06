@@ -43,7 +43,7 @@ To get started, create a new GitHub repository, initialized it with a README and
 
 Add a _docker-compose.yaml_ file with the following content:
 
-```R
+```yaml
 version: '3.7'
 services:
   rapid-api:
@@ -56,7 +56,7 @@ services:
 This file points to a Dockerfile in the _/docker/sqlite_ folder and maps container port 8080 to host port 8080 so we can access our API.
 
 Next, add a _docker_ folder with a _sqlite_ sub folder. There, create a _Dockerfile_ with the following content:
-```R
+```dockerfile
 FROM node:13.14.0-alpine3.11
 
 RUN apk update && apk upgrade 
@@ -152,7 +152,7 @@ For more info, see [this section](https://strapi.io/documentation/v3.x/plugins/d
 ## Entrypoint
 
 Next to the _Dockerfile_ in the _sqlite_ folder, add an _entrypoint.sh_ file with the following content:
-```R
+```bash
 #!/bin/sh
 
 # exit when any command fails
@@ -173,13 +173,13 @@ docker-compose up --build
 
 It will take a while before we are ready for the next steps. The base image is downloaded, updates are installed, the strapi project is initialized and the Documentation and GraphQL plugins are installed. Once this is completed, the container is started and some log entries appear.
 Eventually you will see something like this, indicating that the container is successfully started:
-```r
+```plaintext
 api-dev      | One more thing...
 api-dev      | Create your first administrator 💻 by going to the administration panel at:
 api-dev      |
-api-dev      | ┌─────────────────────────────┐
-api-dev      | │ http://localhost:8080/admin │
-api-dev      | └─────────────────────────────┘
+api-dev      | ┌──────────────────┐
+api-dev      | │ http://localhost:8080/admin  │
+api-dev      | └──────────────────┘
 api-dev      |
 ```
 
@@ -206,13 +206,13 @@ Now that we have added some content and created our first API, we want to see it
 You can use the API client of your choice to test it (postman, [insomnia](https://insomnia.rest/), curl, etc,)
 At the moment, I prefer to use Visual Studio Code with the [REST Client](https://marketplace.visualstudio.com/items?itemName=humao.rest-client) plugin.
 Add a _test.http_ file with the first test:
-```r
+```http
 ###
 GET http://localhost:8080/examples
 ```
 A little _Send Request_ label will appear, and when you click that, Visual Studio Code will execute the GET request.
 You will get a response like this:
-```r
+```http
 HTTP/1.1 403 Forbidden
 ...
 Connection: close
@@ -232,7 +232,7 @@ Now try sending the request again, you should receive the examples that you've a
 For our last exercise, let's use the API to add another entry.
 Add the following to the _test.http_ file:
 
-```r
+```http
 ###
 POST http://localhost:8080/examples
 content-type: application/json
@@ -261,7 +261,7 @@ Your API's GraphQL Playground is available at [http://localhost:8080/graphql](ht
 Don't want to go through the effort described above?
 I'll do you one better. The resulting container image is available [here](https://hub.docker.com/r/akleinloog/rapid-api) on docker hub, so you can get started with a single line:
 
-```r
+```bash
 docker run -p 8080:8080 akleinloog/rapid-api
 ```
 

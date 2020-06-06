@@ -39,7 +39,7 @@ See [part 1](/post/my-blog-pt1) for the basic setup.
 [Google Analytics](https://marketingplatform.google.com/about/analytics/) can provide you with some interesting insights on your site's visitors and the way they use your site. Enabling it on my personal blog provides a nice opportunity to learn a bit more about the possibilities it offers to site owners.
 
 Lucky for me, it is a straight forward exercise. After signing up for google analytics and creating an account for your website, all you need to do is open your _params.toml_ in _/config/_default_ and add the account id:
-```r
+```toml
 ############################
 ## Marketing
 ############################
@@ -51,12 +51,12 @@ Lucky for me, it is a straight forward exercise. After signing up for google ana
 I signed up for [Google Tag Manager](https://marketingplatform.google.com/about/tag-manager/) as well, and tried to activate it, but no luck so far. In order to get Google Analytics to work I had to comment out the _google_tag_manager_ entry. If I decide to take another look at this and get it to work, I'll detail it in a follow up post.
 
 The next step is to configure the base URL of your site, in _config.toml_ in _/config/_default_. If you used a custom domain:
-```r 
+```toml
 # The URL of your site.
 baseurl = "https://www.yourdomain.com/"
 ``` 
 Otherwise, use your GitHub Pages URL:
-```r 
+```toml
 # The URL of your site.
 baseurl = "https://<username here>.github.io/"
 ``` 
@@ -92,7 +92,7 @@ Of course I realize that, as is the case with most 'free service' offerings, I a
 
 Enabling others to comment on your site turns it into an interactive site and is relatively easy to do.
 First go to https://disqus.com and sign up. I selected the basic, free package. Then open _params.toml_ in your _config/_default_ directory and fill in the comments section to enable commenting:
-```r
+```toml
 ############################
 ## Comments
 ############################
@@ -117,7 +117,7 @@ Adding a simple contact page can be done with Academic's [contact widget](https:
 For this side, I decided to add it to the bottom of the about page, and in addition, add a top-level menu and a link from my profile.
 
 To add a top level menu, open _config/_default/menus.toml_ and add:
-```r 
+```toml
 [[main]]
   name = "Contact"
   url = "about/#contact"
@@ -128,7 +128,7 @@ In _config/_default/params.toml_, make sure that an email address is configured.
 
 
 To add a link from your profile, open _authors/admin/_index.md_ and add this to the social section:
-```r
+```toml
 - icon: envelope
   icon_pack: fas
   link: 'about/#contact'
@@ -136,7 +136,7 @@ To add a link from your profile, open _authors/admin/_index.md_ and add this to 
 
 To add the contact form itself, in the _content/about/_ folder, add contact.md with the following content:
 
-```r
+```toml
 +++
 # Contact widget.
 widget = "contact"

@@ -12,7 +12,7 @@ tags:
 - Docker
 date: "2020-05-22T00:00:00Z"
 lastmod: "2020-05-22T00:00:00Z"
-featured: true
+featured: false
 draft: false
 
 # Featured image
