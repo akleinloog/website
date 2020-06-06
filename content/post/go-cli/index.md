@@ -287,7 +287,7 @@ with
   err = http.ListenAndServe(fmt.Sprintf(":%d", serverPort), nil)
 ```
 
-Now for the client, in the get()_ function in _get.go_, replace
+Now for the client, in the _get()_ function in _get.go_, replace
 ```go
   resp, err := http.Get("http://localhost")
 ```
