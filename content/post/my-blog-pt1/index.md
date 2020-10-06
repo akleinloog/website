@@ -1,14 +1,13 @@
 ---
 title: 'Setting up this Blog - Part 1'
-subtitle: 'Getting it up and running...'
-summary: How to set up a simple blog with Hugo and GitHub Pages.
+subtitle: 'Get it up and running...'
+summary: How to set up a simple blog using Hugo and GitHub Pages.
 authors:
 - admin
 tags:
 - Academic
 - Hugo
 date: "2020-05-06T00:00:00Z"
-lastmod: "2020-05-06T00:00:00Z"
 featured: false
 draft: false
 
@@ -30,7 +29,7 @@ image:
 projects: ["personal-blog"]
 ---
 
-This is the first in a series of posts detailing the set up of my personal blog. It covers the basic steps needed to get started.
+Welcome to the first in a series of posts that detail how I set up of this blog. It covers the basic steps needed to get started.
 
 I use [Hugo](https://gohugo.io) as a static site generator and [Visual Studio Code](https://code.visualstudio.com) as editor. The resulting website is hosted using [GitHub Pages](https://pages.github.com/). A nice combination of open source tools with a free hosting provider that poses no restrictions in terms of traffic, size, etc.
 Sounds like a perfect match to me.
@@ -207,17 +206,17 @@ Your domain name will be forwarded to your **www.** and so will your GitHub page
 
 See the GitHub Pages docs for [more information](https://help.github.com/en/github/working-with-github-pages/managing-a-custom-domain-for-your-github-pages-site) and [troubleshooting tips](https://help.github.com/en/github/working-with-github-pages/troubleshooting-custom-domains-and-github-pages).
 
-## Update your sources repository
+## Update the source repository
 
-The last thing to do, before making other modifications to your site, is to secure the CNAME file in your sources repository so that it does not get deleted when you regenerate your website. First pull the changes:
+The last thing to do, before making other modifications to your site, is to secure the CNAME file in your source repository so that it does not get deleted when the website is regenerated. First pull the changes:
 ```bash
 cd public
 
 git pull --all
 ```
-This will update your local module and add the CNAME file. Now copy that file from the _public_ folder to the _static_ folder so it will be re-added when the site is regenerated. Commit and push your changes and you are good to go!
+This will update the local module and add the CNAME file. Now copy that file from the _public_ folder to the _static_ folder so it will be re-added when the site is regenerated. Commit and push your changes and you are good to go!
 
 
 ## Next Steps
 
-I hope you have enjoyed this as much as I did, in [Part 2](/post/my-blog-pt2) I will add support for Google Analytics, comments and a simple contact page.
+I hope you may have learned something from this, as I did. In [Part 2](/post/my-blog-pt2) I will add support for Google Analytics, comments and a simple contact page.

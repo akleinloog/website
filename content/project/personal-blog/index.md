@@ -31,32 +31,33 @@ url_video: ""
 slides: ""
 ---
 
-The goal of this project was to set up a simple website to use as a personal blog.
-You are currently looking at the result of this!
+The goal of this mini-project was to set up a simple website to use as a personal blog.
+You are currently looking at the result of it.
 
 ## The What
 
-The basic idea was to set up a blog where I can easily manage my posts and provide some info on myself and the projects I work on.
-Having played around with Wordpress in the past, I wanted something different this time.
+The basic idea was to set up a simple blog that allows me to manage posts on some topics that interest me and to provide some info on some of the projects I work on.
+Having played around with Wordpress in the past, I wanted to try something different this time.
 
 My main requirements:
-* Easy to use (for me)
-* Easy to host
-* Free of costs (no licence or hosting fees)
+* Easy to use (for me, so opinionated)
+* Easy to host, on a custom domain with HTTPS
+* Free of costs, no licence or hosting fees
 * Learn something new in the process
 
 
 ## The Why
 
-My main motivation is to have a place to keep track of the many technical experiments I do and their outcomes.
+My main motivation is to have a place to keep track of some of the technical experiments I do and their outcomes.
 A blog that allows me to write small posts, tag them, and easily search through them seemed like a good solution.
 
-If others can also find these experiments and learn from them, that would be an additional benefit. And if they in turn can provide feedback, even better.
+If others may find these experiments and learn from them, that would be an additional benefit.
+And if in turn they would provide feedback, even better!
 
 ## The How
 
 After looking around a bit I decided to try out the following:
-* Use [Hugo](https://gohugo.io/), a Static Site Generator written in [Go](https://golang.org/)
+* Use [Hugo](https://gohugo.io/), a static site generator written in [Go](https://golang.org/)
 * Write the content in [markdown](https://www.markdownguide.org/)
 * Use a [GitHub repository](https://github.com/akleinloog/website) to keep the sources
 * Use another [GitHub repository](https://github.com/akleinloog/akleinloog.github.io) to host the resulting blog
@@ -66,6 +67,6 @@ After looking around a bit I decided to try out the following:
 
 The current state of this project is open for all to see. Look around and take a look at the sources if you are interested.
 
-This is still a work in progress, I will add some posts that detail what I did and what I used, and hope to add some additional features soon, for example, the possibility for others to comment.
+This is a work in progress, posts will be added and edited to my likings, and I hope to add some additional features every now and then as well.
 
-I hope you will find this useful somehow!
+I hope you may find this useful somehow!
