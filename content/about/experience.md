@@ -30,17 +30,16 @@ date_format = "Jan 2006"
 [[experience]]
   title = "Software Engineer"
   company = "Roche Diagnostics"
-  company_url = ""
+  company_url = "https://www.roche.com/about/business/diagnostics.htm"
   location = "Rotkreuz, Switzerland"
   date_start = "2012-09-01"
   date_end = "2013-05-01"
   description = """Member of one of the development teams working on the instrument management software of a coagulation analyzer for labs."""
 
 [[experience]]
-  title = "And Many More..."
-  company = "For Different Companies"
-  company_url = "https://www.roche.com/about/business/diagnostics.htm"
-  location = "In the Netherlands and Abroad"
+  title = "And many more..."
+  company = "Different companies, different industries"
+  location = "In the Netherlands and abroad"
   date_start = "1987-04-26"
   date_end = "2012-08-01"
   description = """Comfortable with C#, Java, PHP, Python and several other languages, even worked with COBOL back in the days. Played around with the likes of Haskell, Elm and other exotics.

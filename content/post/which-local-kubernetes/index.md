@@ -1,87 +1,85 @@
 ---
-title: 'Which Kubernetes to use on my development PC?'
-subtitle: 'Kubernetes on my machine, a great idea, but which one?'
-summary: What is the best way to run local Kubernetes clusters on my developer machine? Taking a look at Docker vs Kind vs Minikube vs K3d.
+title: 'Kubernetes on my machine. Great idea, but which one?'
+subtitle: 'Which Kubernetes distribution will I use on my development PC?'
+summary: What is the best way to run local Kubernetes clusters on my dev machine? A comparison of Docker vs Kind vs Minikube vs K3d vs MicroK8s.
 authors:
 - admin
 tags:
 - Kubernetes
+- MicroK8s
 - Minikube
 - Kind
 - K3s
 - Docker
 date: "2020-05-22T00:00:00Z"
-lastmod: "2020-05-22T00:00:00Z"
-featured: false
+featured: true
 draft: false
 
-# Featured image
-# To use, add an image named `featured.jpg/png` to your page's folder.
-# Placement options: 1 = Full column width, 2 = Out-set, 3 = Screen-width
-# Focal point options: Smart, Center, TopLeft, Top, TopRight, Left, Right, BottomLeft, Bottom, BottomRight
 image:
   placement: 2
   caption: ""
   focal_point: ""
   preview_only: false
 
-# Projects (optional).
-#   Associate this post with one or more of your projects.
-#   Simply enter your project's folder or file name without extension.
-#   E.g. `projects = ["internal-project"]` references `content/project/deep-learning/index.md`.
-#   Otherwise, set `projects = []`.
 projects: []
 ---
 
 [Kubernetes](https://kubernetes.io) is the state-of-the-art when it comes to container orchestration.  
-It was built upon years of experience with production workloads at Google, combined with best-of-breed ideas and practices from the community.
-It is available Open Source and vendor neutral and runs basically everywhere.
+Built upon years of experience with production workloads at Google, it combines best-of-breed ideas and community practices.
+Kubernetes is a classroom example of a successful open source project, drives vendor neutrality and runs basically everywhere.
 
-Today, I see Kubernetes as the Operating System of the Cloud Native world.  
-It provides the base environment for my containerized applications, and as such, it is important to me to have it running locally on my development PC.
+Today, I see Kubernetes as the operating system of the Cloud Native world.
+It is the base environment for my containerized applications, so I need to have it up and running locally on my development notebook.
 
-To this end, several decent options are available. Which to choose when?
+Luckily there are several decent options. All I need to do is choose one.
 
 ### My Requirements
 
 As always, choosing a solution works best if you understand your needs.
 Since this is for my local development environment, my must haves are:
-* Runs on my laptop
+* Lightweight, tuns on my laptop
 * Easy to install, configure and automate
 * Wide support of Kubernetes versions and features
 * Cross Platform, available for Mac, Windows and Linux
 
-In addition, I would like to use the same solution on a single machine personal development server.
-Using different solutions is an option.
+In addition, I would like to use the same solution on a development server to create a one node cluster.
+Ideally, I should be able to use it with some Raspberry Pis to create a small cluster as well.
+These are nice to haves though, using a different distribution for each purpose is an option too.
 
 ### The Alternatives
 
-So far, I have identified the following potential solutions:
+So far, I have identified the following solutions as promising:
 
 [Docker Desktop](https://www.docker.com/blog/kubernetes-is-now-available-in-docker-desktop-stable-channel/) ships with a bundled Kubernetes offering.
-The Kubernetes version it supports is tightly coupled with the Docker version. The current version (2.2.0.5) supports Kubernetes version 1.15.5.
-I have not found a programmatic way to create and destroy a new Kubernetes cluster. 
-It can only be done using the Docker desktop app preferences.
+The Kubernetes version it supports is tightly coupled with the Docker version. The current version (2.4.0.0) ships with Kubernetes version 1.18.8.
+Since it comes with docker I don't need to install anything. At the same time, I did not find an easy programmatic way to create and destroy a new Kubernetes cluster.
 
 [Kind](https://kind.sigs.k8s.io) - Kubernetes IN Docker - is a tool for running local Kubernetes clusters using Docker containers as nodes.
-It is an [Open Source](https://github.com/kubernetes-sigs/kind) project managed by the Kubernetes Community and was primarily designed for testing Kubernetes itself.
+It is an [open source](https://github.com/kubernetes-sigs/kind) project managed by the Kubernetes Community and was primarily designed for testing Kubernetes itself.
 Kind supports multi-node (including HA) clusters and is optimized for CI pipelines. 
 
 [Minikube](https://minikube.sigs.k8s.io/docs/) sets up a local single node Kubernetes cluster using a VM.
-It is another [Open Source](https://github.com/kubernetes/minikube) project managed by the Kubernetes Community and was designed to make it simple to run Kubernetes locally, for day-to-day development workflows and learning purposes.
-Minikube supports multiple container runtimes and advanced features such as Load Balancer, filesystem mounts, and Feature Gates.
+It is another [open source](https://github.com/kubernetes/minikube) project managed by the Kubernetes Community and was designed to make it simple to run Kubernetes locally, for day-to-day development workflows and learning purposes.
+Minikube supports multiple container runtimes and advanced features such as load balancer, filesystem mounts, and feature gates.
 
-[K3d](https://k3d.io) is a lightweight wrapper to run [k3s](https://k3s.io) (Rancher Lab’s minified Kubernetes distribution) in docker.
+[K3d](https://k3d.io) is a lightweight wrapper to run [k3s](https://k3s.io), Rancher Lab’s minified Kubernetes distribution, in docker.
 By removing dispensable features (legacy, alpha, non-default, in-tree plugins) and using lightweight components (e.g. sqlite3 instead of etcd3) Rancher Labs created an ultra small Kubernetes distribution built for IoT and Edge computing. It supports ARMv7 and ARM64 architectures, making it possible to run a Kubernetes cluster on a set of Raspberry Pis.
 
-Other potential alternatives like [Microk8s](https://microk8s.io), [Kubeadm](https://kubernetes.io/docs/reference/setup-tools/kubeadm/kubeadm/), [Kubespray](https://kubespray.io) and [Kops](https://kops.sigs.k8s.io) where discarded, either because they are not Cross Platform or are geared towards production environments.
+Last but not least, [Microk8s](https://microk8s.io) is a production-grade Kubernetes distribution maintained by Canonical.
+MicroK8s runs in an immutable container, comes with a range of sensible defaults to ease installation and configuration.
+Networking, storage and standard services are supported out of the box and can be customized as needed.
+It supports both ARM and Intel architectures, as well as single node and multi node deployments. 
+
+Of course there are other potential alternatives like [Kubeadm](https://kubernetes.io/docs/reference/setup-tools/kubeadm/kubeadm/), [Kubespray](https://kubespray.io),  [Kops](https://kops.sigs.k8s.io) and more. I discarded these because they are not cross platform, require too much manual configuration or are rather geared towards production environments.
+
+If you feel there is an alternative missing here, please leave a comment.
   
 
 ### How do they compare?
 
 The following table lists the alternatives along with some of their characteristics:
 * Nodes: The number of cluster nodes supported
-* CLI: Command Line Interface for installation and configuration
+* CLI: Supports automated installation and configuration
 * Multiple: Supports multiple clusters on a single machine
 * Versions: Support for different Kubernetes versions
 * Features: Support for Kubernetes features
@@ -91,30 +89,30 @@ The following table lists the alternatives along with some of their characterist
 
 |           | Nodes | CLI   | Multiple | Versions | Features | Resources | Pauseable |
 |---------- | ----- | ----- | -------- | -------- | -------- | --------- | --------- | 
+| MicroK8s  |  n    |  Yes  | Yes      | Medium   | Highest  | Low       | Yes       |
 | Minikube  |  1    |  Yes  | Yes      | High     | Highest  | High      | Yes       |
 | Kind      |  n    |  Yes  | Yes      | High     | High     | Medium    | No        |
 | K3d       |  n    |  No   | Yes      | Low      | Medium   | Low       | No        |
-| Docker    |  1    |  No   | No       | Single   | High     | Medium    | No        |
+| Docker    |  1    |  No   | No       | Single   | High     | Medium    | Yes       |
 
 
 ### Conclusion
 
 This exercise provided me with some interesting insights.
 
-I discard the Docker Desktop version, mainly because it only supports a single Kubernetes version and I have not found a way to programmatically create, configure and destroy the cluster.
+I won't be using the Docker Desktop version, mainly because it only supports a single Kubernetes version and I have not found a way to programmatically create, configure and destroy the cluster.
 
-[k3s](https://k3s.io) has gotten my attention. Especially the idea of running a Kubernetes cluster on a set of Raspberry PIs definitely made it on my wish list.
+Running a Kubernetes cluster on a set of Raspberry Pis is definitely something I want to spend some time on.
+With two options to try out I can't wait to get started.
 
-For my development environment, I am tending towards using something that is managed by the Kubernetes Community. 
-They have done an awesome job with Kubernetes, and I expect less hassle using either Kind or Minikube.
+Both Kind and Minikube are managed by the Kubernetes community.
+They have done an awesome job in bringing us Kubernetes, so I expect these to be hassle free alternatives.
 
-For now, I'll get started with Minikube, as it promises the best support for my development workflows.
-I will detail my setup and learnings in a follow up post.
-At a later state, I may also add Kind to the mix to experiment with certain failure scenarios.
+I first took Minikube for a deep dive, as detailed in this [post](/post/minikube-kubernetes).
 
-And when the time comes to develop solutions targeting IoT and Edge computing I can use K3d to test on my local environment.
+Up next is MicroK8s, more on that to follow soon.
 
-Check [here](https://github.com/cncf/k8s-conformance) for a list of certified Kubernetes offerings and [here](https://docs.google.com/spreadsheets/d/1LxSqBzjOxfGx3cmtZ4EbB_BGCxT_wlxW_xgHVVa23es/edit#gid=0) for the details on which Kubernetes versions are supported.
+[Here](https://docs.google.com/spreadsheets/d/1LxSqBzjOxfGx3cmtZ4EbB_BGCxT_wlxW_xgHVVa23es/edit#gid=0) is an updated list of certified Kubernetes offerings and the versions they support, and [here](https://github.com/cncf/k8s-conformance) is more info on conformance.
 
-If you feel like I have missed something, or do not agree with my conclusions, please leave a note!
+If you do not agree with my conclusions, or you feel like I have missed something, please leave a comment!
 
