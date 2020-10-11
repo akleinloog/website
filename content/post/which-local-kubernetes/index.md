@@ -65,7 +65,7 @@ Minikube supports multiple container runtimes and advanced features such as load
 [K3d](https://k3d.io) is a lightweight wrapper to run [k3s](https://k3s.io), Rancher Lab’s minified Kubernetes distribution, in docker.
 By removing dispensable features (legacy, alpha, non-default, in-tree plugins) and using lightweight components (e.g. sqlite3 instead of etcd3) Rancher Labs created an ultra small Kubernetes distribution built for IoT and Edge computing. It supports ARMv7 and ARM64 architectures, making it possible to run a Kubernetes cluster on a set of Raspberry Pis.
 
-Last but not least, [Microk8s](https://microk8s.io) is a production-grade Kubernetes distribution maintained by Canonical.
+Last but not least, [MicroK8s](https://microk8s.io) is a production-grade Kubernetes distribution maintained by Canonical.
 MicroK8s runs in an immutable container, comes with a range of sensible defaults to ease installation and configuration.
 Networking, storage and standard services are supported out of the box and can be customized as needed.
 It supports both ARM and Intel architectures, as well as single node and multi node deployments. 
@@ -100,15 +100,16 @@ The following table lists the alternatives along with some of their characterist
 
 This exercise provided me with some interesting insights.
 
-I won't be using the Docker Desktop version, mainly because it only supports a single Kubernetes version and I have not found a way to programmatically create, configure and destroy the cluster.
+I won't be using the Docker Desktop version, mainly because it only supports a single Kubernetes version and I haven't found a way to programmatically create, configure and destroy the cluster.
 
 Running a Kubernetes cluster on a set of Raspberry Pis is definitely something I want to spend some time on.
-With two options to try out I can't wait to get started.
+With two options to try out I can't wait to get started. I'll add a post as soon as I get to it.
 
-Both Kind and Minikube are managed by the Kubernetes community.
-They have done an awesome job in bringing us Kubernetes, so I expect these to be hassle free alternatives.
+Both Kind and Minikube are interesting options managed by the Kubernetes community.
+They have done an awesome job with Kubernetes, so I expect these to be hassle free alternatives.
+At first sight, Kind seems to be promising for automated tests in your CI/CD pipeline and Minikube seems to be the most feature rich for your desktop.
 
-I first took Minikube for a deep dive, as detailed in this [post](/post/minikube-kubernetes).
+I took a deeper look at Minikube, see this [post](/post/minikube-kubernetes) for the details.
 
 Up next is MicroK8s, more on that to follow soon.
 

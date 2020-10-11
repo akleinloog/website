@@ -38,7 +38,7 @@ date_format = "Jan 2006"
 
 [[experience]]
   title = "And many more..."
-  company = "Different companies, different industries"
+  company = "Different companies, various industries"
   location = "In the Netherlands and abroad"
   date_start = "1987-04-26"
   date_end = "2012-08-01"

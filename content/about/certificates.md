@@ -37,6 +37,6 @@ date_format = "Jan 2006"
   certificate_url = ""
   date_start = "1994-09-01"
   date_end = "2012-08-01"
-  description = "Some would say I'm certified... as is to be expected, working in IT for a while..."
+  description = "Some would say I'm certified... as is to be expected, working in IT for a while :)"
 
 +++

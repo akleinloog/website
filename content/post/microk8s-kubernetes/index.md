@@ -1,15 +1,16 @@
 ---
-title: 'Minikube - Kubernetes for developers'
-subtitle: 'Set up a local Kubernetes installation using Minikube'
-summary: Have Kubernetes up and running on your local dev machine.
+title: 'MicroK8s - Kubernetes for developers'
+subtitle: 'Set up a local Kubernetes installation using MicroK8s'
+summary: Autonomous, production-grade Kubernetes on your local dev machine.
 authors:
 - admin
 tags:
 - Kubernetes
-- Minikube
-date: "2020-05-30T00:00:00Z"
-featured: false
-draft: false
+- MicroK8s
+- Multipass
+date: "2020-10-09T00:00:00Z"
+featured: true
+draft: true
 
 # Featured image
 # To use, add an image named `featured.jpg/png` to your page's folder.
@@ -29,18 +30,18 @@ image:
 projects: []
 ---
 
-As described [here](/post/which-local-kubernetes), I decided to take a deeper look at [minikube](https://minikube.sigs.k8s.io/docs/) to run a Kubernetes cluster on my dev machine.
-These are the details and some of my learnings along the way.
+Following my initial post on [local Kubernetes options](/post/which-local-kubernetes) and a deep dive on [Minikube](/post/minikube-kubernetes) it is time to take [MicroK8s](https://microk8s.io) for a spin.
+I have been looking forward to this for a while, so let's get started.
 
 ### Preparation
 
-As usual, before starting any experiments, I want my MacBook up to date, so I make sure that I have the latest updates installed.
-At the time of writing, these are macOS Catalina version 10.15.5 and Xcode version 11.5.
-Then I make sure that brew and any installed packages are up to date as well:
+First things first, I want my MacBook up to date.
+At the time of writing, it runs macOS Catalina version 10.15.7 and Xcode version 12.0.1.
+Time to update the rest:
 ```bash
 brew update
 brew upgrade
-brew cask upgrade
+brew upgrade --cask
 ```
 In addition, make sure there are no issues. If there are, resolve them first:
 ```bash
@@ -50,15 +51,26 @@ Should give the following output when all is ready:
 ```bash
 Your system is ready to brew.
 ```
-Should you run into any issues, google is your friend...
+Should you run into any issues, I recommend to fix these first. Google is your friend...
 
 If you are running windows, [chocolatey](https://chocolatey.org/) is a decent alternative to brew.
 
-If not already installed, make sure you have [Docker Desktop](https://hub.docker.com/editions/community/docker-ce-desktop-mac) up and running.
-This should also come with [Hyperkit](https://github.com/moby/hyperkit), a lightweight hypervisor for macOS.
-You can find other alternatives [here](https://minikube.sigs.k8s.io/docs/drivers/).
+### Install Multipass
 
-### Installation
+[Multipass](https://multipass.run) makes it easy to work with Ubuntu VMs on a Mac or Windows workstation.
+Install it using:
+```bash
+brew cask install multipass
+```
+After a little while, the installation completes:
+```plaintext
+🍺  multipass was successfully installed!
+```
+For more info on Multipass, check the [docs](https://multipass.run/docs).
+
+
+
+### Install MicroK8s
 
 Install minikube and [kubectl](https://kubernetes.io/docs/reference/kubectl/overview/):
 ```bash
@@ -122,6 +134,12 @@ If you want, you can open the kubernetes dashboard using:
 minikube dashboard
 ```
 The dashboard will be installed and opened in a browser tab.
+
+
+### First deployment
+
+
+
 
 ### Pause and resume
 
@@ -217,6 +235,9 @@ And delete it when you don't need it anymore:
 🔥  Deleting "cluster2" in hyperkit ...
 💀  Removed all traces of the "cluster2" cluster.
 ```
+
+
+
 
 ### Next Steps...
 
