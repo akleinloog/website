@@ -68,15 +68,48 @@ After a little while, the installation completes:
 ```
 For more info on Multipass, check the [docs](https://multipass.run/docs).
 
+### Create Ubuntu VM
 
+TIme to create our first Ubuntu VM to install MicroK8s on
+
+```bash
+multipass launch --name k8s-master --cpus 4 --mem 16G --disk 50G
+```
+After a little while, a new VM is created:
+```plaintext
+Launched: k8s-master
+```
+
+Open a shell into our new VM
+```bash
+multipass shell k8s-master
+```
+
+And make sure it is up to date:
+```bash
+sudo su
+apt update
+apt upgrade
+```
 
 ### Install MicroK8s
 
-Install minikube and [kubectl](https://kubernetes.io/docs/reference/kubectl/overview/):
+Time to install MicroK8s:
 ```bash
-brew install minikube
-brew install kubectl
+sudo snap install microk8s --classic --channel=1.18/stable
+sudo iptables -P FORWARD ACCEPT
 ```
+
+MicroK8s creates a group to enable seamless usage of commands which require admin privilege. To add your current user to the group and gain access to the .kube caching directory, run the following two commands: 
+
+sudo usermod -a -G microk8s $USER
+sudo chown -f -R $USER ~/.kube
+
+You will also need to re-enter the session for the group update to take place:
+
+su - $USER
+
+
 
 ### First Cluster
 
