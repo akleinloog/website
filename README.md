@@ -19,8 +19,19 @@ To run it including draft articles:
 hugo server -D
 ``` 
 
+## Updating wowchemy
+
+```bash
+hugo mod get -u
+``` 
+
 ## Publishing
+
+Publish the site:
+```bash
+./deploy.sh
+``` 
 
 The content in the public folder is overwritten when the site is generated.
 
-Static content is kept in the *static* folder.
+Static content must be placed in the *static* folder.
