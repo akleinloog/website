@@ -8,9 +8,9 @@ tags:
 - Kubernetes
 - MicroK8s
 - Multipass
-date: "2020-10-09T00:00:00Z"
+date: "2021-02-13T00:00:00Z"
 featured: true
-draft: true
+draft: false
 
 # Featured image
 # To use, add an image named `featured.jpg/png` to your page's folder.
@@ -35,8 +35,8 @@ I have been looking forward to this for a while, so let's get started.
 
 ### Preparation
 
-First things first, I want my MacBook up to date.
-At the time of writing, it runs macOS Catalina version 10.15.7 and Xcode version 12.0.1.
+First things first, as always, I want my MacBook up to date.
+At the time of writing, it runs macOS Big Sur version 11.2.1 and Xcode version 12.0.1.
 Time to update the rest:
 ```bash
 brew update
@@ -60,7 +60,7 @@ If you are running windows, [chocolatey](https://chocolatey.org/) is a decent al
 [Multipass](https://multipass.run) makes it easy to work with Ubuntu VMs on a Mac or Windows workstation.
 Install it using:
 ```bash
-brew cask install multipass
+brew install --cask multipass
 ```
 After a little while, the installation completes:
 ```plaintext
@@ -68,9 +68,9 @@ After a little while, the installation completes:
 ```
 For more info on Multipass, check the [docs](https://multipass.run/docs).
 
-### Create Ubuntu VM
+### Create an Ubuntu VM
 
-TIme to create our first Ubuntu VM to install MicroK8s on
+TIme to create an Ubuntu VM to install MicroK8s on. Let's give it some resources as well.
 
 ```bash
 multipass launch --name k8s-master --cpus 4 --mem 16G --disk 50G
@@ -96,185 +96,89 @@ apt upgrade
 
 Time to install MicroK8s:
 ```bash
-sudo snap install microk8s --classic --channel=1.18/stable
+sudo snap install microk8s --classic --channel=1.19/stable
+```
+And make sure the networking runs smoothly:
+```bash
 sudo iptables -P FORWARD ACCEPT
 ```
 
-MicroK8s creates a group to enable seamless usage of commands which require admin privilege. To add your current user to the group and gain access to the .kube caching directory, run the following two commands: 
-
+MicroK8s creates a group to enable seamless usage of commands which require admin privilege. Add your user to this group: 
+```bash
 sudo usermod -a -G microk8s $USER
 sudo chown -f -R $USER ~/.kube
-
-You will also need to re-enter the session for the group update to take place:
-
+```
+Re-enter the session so the group update takes place:
+```bash
 su - $USER
-
-
-
-### First Cluster
-
-Create a cluster:
+```
+Make sure that the cluster was created successfully:
 ```bash
-minikube start
+microk8s status --wait-ready
 ```
-Gives an output similar to:
-```plaintext
-😄  minikube v1.11.0 on Darwin 10.15.5
-✨  Using the hyperkit driver based on user configuration
-🆕  Kubernetes 1.18.3 is now available. If you would like to upgrade, specify: --kubernetes-version=v1.18.3
-👍  Starting control plane node minikube in cluster minikube
-🔥  Creating hyperkit VM (CPUs=2, Memory=2048MB, Disk=20000MB) ...
-🐳  Preparing Kubernetes v1.14.7 on Docker 19.03.8 ...
-🔎  Verifying Kubernetes components...
-🌟  Enabled addons: default-storageclass, storage-provisioner
-🏄  Done! kubectl is now configured to use "minikube"
-
-❗  /usr/local/bin/kubectl is version 1.18.3, which may be incompatible with Kubernetes 1.14.7.
-💡  You can also use 'minikube kubectl -- get pods' to invoke a matching version
-```
-This tells us that the default Kubernetes version that was used is **1.14.7**, and that the cluster has **2** CPUs, **2 GB** of memory and **20 GB** of disk spaces at its disposable.
-It also tells us that the latest available version of Kubernetes is **1.18.3**.
-Since this is my dev machine, I want to use the latest Kubernetes version, and I want to assign more resources.
-Remove the cluster:
+Create an alias for kubectl:
 ```bash
-minikube delete
-```
-Gives an output similar to:
-```plaintext
-🔥  Deleting "minikube" in hyperkit ...
-💀  Removed all traces of the "minikube" cluster.
+alias kubectl='microk8s kubectl'
 ```
 
-Create a new cluster as follows:
-```bash
-minikube start --kubernetes-version=v1.18.3 --cpus=4 --memory='8g' --disk-size='80000mb'
-```
-Gives an output similar to:
-```plaintext
-😄  minikube v1.11.0 on Darwin 10.15.5
-✨  Using the hyperkit driver based on user configuration
-👍  Starting control plane node minikube in cluster minikube
-🔥  Creating hyperkit VM (CPUs=4, Memory=8192MB, Disk=80000MB) ...
-🐳  Preparing Kubernetes v1.18.3 on Docker 19.03.8 ...
-🔎  Verifying Kubernetes components...
-🌟  Enabled addons: default-storageclass, storage-provisioner
-🏄  Done! kubectl is now configured to use "minikube"
-```
-
-That is more like it. A local Kubernetes cluster up and running, and everything is up to date.
-If you want, you can open the kubernetes dashboard using:
-```bash
-minikube dashboard
-```
-The dashboard will be installed and opened in a browser tab.
+For more info on MicroK8s, check the [docs](https://microk8s.io/docs).
 
 
 ### First deployment
 
-
-
-
-### Pause and resume
-
-One very useful feature of minikube is that you can pause and resume your cluster.
-If you don't need it for now, pause the cluster using:
+Deploy a simple application:
 ```bash
-minikube stop
+kubectl create deployment hello --image=akleinloog/hello:v1
 ```
-Gives an output similar to:
-```plaintext
-✋  Stopping "minikube" in hyperkit ...
-🛑  Node "minikube" stopped.
-```
-At a later point, you can resume it using:
+Verify that the pod is up and running:
 ```bash
-minikube start --kubernetes-version=v1.18.3
+kubectl get pods
 ```
-Gives an output similar to:
-```plaintext
-😄  minikube v1.11.0 on Darwin 10.15.5
-✨  Using the hyperkit driver based on existing profile
-👍  Starting control plane node minikube in cluster minikube
-🔄  Restarting existing hyperkit VM for "minikube" ...
-🐳  Preparing Kubernetes v1.18.3 on Docker 19.03.8 ...
-🔎  Verifying Kubernetes components...
-🌟  Enabled addons: default-storageclass, storage-provisioner
-🏄  Done! kubectl is now configured to use "minikube"
-```
-Notice that you do need to provide the Kubernetes version if you specified one different from the default.
-This command can also be used to upgrade the Kubernetes version if a newer one becomes available.
-
-### Multiple Clusters
-
-Another very useful feature of minikube is the ability to run multiple clusters.
-You can run them at the same time to do multi-cluster experiments, or pause / resume them when switching between projects.
-Let's first delete the previously created cluster:
+And expose it:
 ```bash
-minikube delete
+kubectl expose deployment hello --port=80 --type=NodePort
 ```
-Then create our first cluster:
+See at which port it is available:
 ```bash
-minikube start -p cluster1 --kubernetes-version=v1.18.3
+kubectl get services
 ```
-And then a second one:
+This should give a response similar to:
 ```bash
-minikube start -p cluster2 --kubernetes-version=v1.18.3
+NAME         TYPE        CLUSTER-IP      EXTERNAL-IP   PORT(S)        AGE
+kubernetes   ClusterIP   10.152.183.1    <none>        443/TCP        15m
+hello        NodePort    10.152.183.70   <none>        80:31984/TCP   3s
 ```
-
-You can see the clusters using:
+Which tells us that the hello app is exposes at port 31984, so we can test it using:
 ```bash
-kubectl config get-contexts
+curl localhost:31984
 ```
-Gives an output similar to:
-```plaintext
-CURRENT   NAME       CLUSTER    AUTHINFO   NAMESPACE
-          cluster1   cluster1   cluster1
-*         cluster2   cluster2   cluster2
-```
-The * marks the currently selected context. You can also see that using:
+
+Which should give output similar to:
 ```bash
-% kubectl config current-context
-cluster2
-```
-You can switch between clusters by selecting their context:
-```plaintext
-% kubectl config use-context cluster1
-Switched to context "cluster1".
+Go Hello 1 from hello-656897b96f-dvwc7 on GET ./
 ```
 
-Stop one of the clusters if you don't need it for now:
-```plaintext
-% minikube stop -p cluster2
-✋  Stopping "cluster2" in hyperkit ...
-🛑  Node "cluster2" stopped.
+On your host machine, list the multipass VMs:
+```bash
+multipass list
 ```
 
-Resume it when you need it again:
-```plaintext
-% minikube start -p cluster2 --kubernetes-version=v1.18.3
-😄  [cluster2] minikube v1.11.0 on Darwin 10.15.5
-✨  Using the hyperkit driver based on existing profile
-👍  Starting control plane node cluster2 in cluster cluster2
-🔄  Restarting existing hyperkit VM for "cluster2" ...
-🐳  Preparing Kubernetes v1.18.3 on Docker 19.03.8 ...
-🔎  Verifying Kubernetes components...
-🌟  Enabled addons: default-storageclass, storage-provisioner
-🏄  Done! kubectl is now configured to use "cluster2"
+Which should give output similar to:
+```bash
+k8s-master              Running           192.168.64.52    Ubuntu 20.04 LTS
+                                          10.1.235.192
 ```
 
-And delete it when you don't need it anymore:
-```plaintext
-% minikube delete -p cluster2
-🔥  Deleting "cluster2" in hyperkit ...
-💀  Removed all traces of the "cluster2" cluster.
+Which tells us that we can access the app running in our Kubernetes instance using:
+```bash
+curl 192.168.64.52:31984
 ```
-
-
-
+Or by simply pointing our browser to http://192.168.64.52:31984
 
 ### Next Steps...
 
-Get more familiar with Kubernetes, follow some basic tutorials to deploy your first app [here](https://kubernetes.io/docs/tutorials/) and find some more [here](https://katacoda.com/courses/kubernetes). Again, google is your friend, there is plenty of content out there.
+To get more familiar with Kubernetes, follow some basic tutorials [here](https://kubernetes.io/docs/tutorials/) and find some more [here](https://katacoda.com/courses/kubernetes). Again, google is your friend, there is plenty of content out there.
 
-As for me, my next step will be to install [Istio](https://istio.io/) and make sure that my cluster can also be reached from other machines in my network.
-I'll present the details in a following post...
+In addition, you can install some readily available [MicroKs add ons](https://microk8s.io/docs/addons) like [Istio](https://istio.io/) or [Knative](https://knative.dev/) and play around with those. Last but not least, extend your single node cluster with [additional nodes](https://microk8s.io/docs/clustering)!
+
+As for me, my next step will be to setup a [Rancher](https://rancher.com/) instance and create a managed local cluster.

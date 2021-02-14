@@ -110,10 +110,9 @@ They have done an awesome job with Kubernetes, so I expect these to be hassle fr
 At first sight, Kind seems to be promising for automated tests in your CI/CD pipeline and Minikube seems to be the most feature rich for your desktop.
 
 I took a deeper look at Minikube, see this [post](/post/minikube-kubernetes) for the details.
-
-Up next is MicroK8s, more on that to follow soon.
+In addition, check this [post](/post/microk8s-kubernetes) to see how to quickly setup a MicroK8s cluster.
 
 [Here](https://docs.google.com/spreadsheets/d/1LxSqBzjOxfGx3cmtZ4EbB_BGCxT_wlxW_xgHVVa23es/edit#gid=0) is an updated list of certified Kubernetes offerings and the versions they support, and [here](https://github.com/cncf/k8s-conformance) is more info on conformance.
 
-If you do not agree with my conclusions, or you feel like I have missed something, please leave a comment!
+If you see things differently, or feel like I missed something, please leave a comment!
 
