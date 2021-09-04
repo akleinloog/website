@@ -36,7 +36,7 @@ I have been looking forward to this for a while, so let's get started.
 ### Preparation
 
 First things first, as always, I want my MacBook up to date.
-At the time of writing, it runs macOS Big Sur version 11.2.1 and Xcode version 12.0.1.
+At the time of writing, it runs macOS Big Sur version 11.2.1 and Xcode version 12.4.
 Time to update the rest:
 ```bash
 brew update
