@@ -12,7 +12,7 @@ tags:
 - strapi
 date: "2020-05-27T00:00:00Z"
 lastmod: "2020-05-27T00:00:00Z"
-featured: true
+featured: false
 draft: false
 
 # Featured image
